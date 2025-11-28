@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <title>PetHouse – Adopt a Pet</title>
+
+    <style>
+        /* ===== Body & Fonts ===== */
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            /* Background image with fixed position */
+            background: url(https://tse4.mm.bing.net/th/id/OIP.80qMY0pCPJk5FHEswsIUpwHaFC?rs=1&pid=ImgDetMain&o=7&rm=3) no-repeat center center fixed;
+            background-size: cover; /* Full screen */
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+            color:purple /* Dark Grey */
+            background-color:coral
+        }
+
+       
+        h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+            color: #fff; /* White */
+            text-shadow: 2px 2px 8px #000; /* Black shadow */
+        }
+        h2 {
+            margin-top: 40px;
+            color: #fff; /* White */
+            text-shadow: 1px 1px 5px #000; /* Black shadow */
+        }
+
+        /* ===== Filter Section ===== */
+        .filters select, .filters button {
+            padding: 10px 15px;
+            margin: 5px;
+            border-radius: 25px;
+            border: none;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        .filters select {
+            background: #fff; /* White */
+        }
+
+        .filters button {
+            background: #ff7f50; /* Coral */
+            color: white; /* White text */
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .filters button:hover {
+            background: #e7663b; /* Dark Coral */
+            transform: scale(1.05);
+        }
+
+        /* ===== Pet Cards ===== */
+        #petList {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .pet {
+            background: rgba(255, 255, 255, 0.9); /* Semi-transparent White */
+            border-radius: 15px;
+            padding: 15px;
+            width: 220px;
+            margin: 15px;
+            transition: 0.3s;
+            box-shadow: 0 6px 10px rgba(0,0,0,0.2); /* Soft Black Shadow */
+        }
+
+        .pet:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 20px rgba(0,0,0,0.3); /* Darker Shadow */
+        }
+
+        .pet img {
+            width: 100%;
+            height: 130px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        /* ===== Adoption Form ===== */
+        form input {
+            display: block;
+            margin: 12px auto;
+            padding: 10px;
+            width: 260px;
+            border-radius: 8px;
+            border: 2px solid #ddd; /* Light Grey */
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        form input:focus {
+            border-color: #ff7f50; /* Coral */
+            outline: none;
+            box-shadow: 0 0 8px #ff7f5070; /* Semi-transparent Coral Glow */
+        }
+
+        button {
+            background: #ff7f50; /* Coral */
+            color: white; /* White text */
+            padding: 10px 25px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #e7663b; /* Dark Coral */
+            transform: scale(1.05);
+        }
+
+        /* ===== Video Section ===== */
+        video {
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.4); /* Black shadow */
+        }
+
+        /* ===== Message ===== */
+        #message {
+            font-size: 18px;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <h1>PetHouse – Adopt Your Friend</h1>
+
+    <!-- ===== Filter Section ===== -->
+    <div class="filters">
+        <select id="typeFilter">
+            <option value="all">All Types</option>
+            <option value="dog">Dogs</option>
+            <option value="cat">Cats</option>
+            <option value="rabbit">Rabbits</option>
+        </select>
+
+        <select id="ageFilter">
+            <option value="all">All Ages</option>
+            <option value="young">Below 2 years</option>
+            <option value="adult">2 years & above</option>
+        </select>
+
+        <button onclick="filterPets()">Apply Filter</button>
+    </div>
+
+    <!-- ===== Pet List ===== -->
+    <div id="petList">
+
+        <div class="pet" data-type="dog" data-age="young">
+            <img src="C:\Users\k.varshini\OneDrive\Pictures\dhuruv.jpg" alt="Dog">
+            <h3>Dhuruvan(Dog)</h3>
+            <p>Age: 1 year</p>
+        </div>
+
+        <div class="pet" data-type="cat" data-age="adult">
+            <img src="https://static.vecteezy.com/system/resources/thumbnails/050/393/628/small/cute-curious-gray-and-white-kitten-in-a-long-shot-photo.jpg" alt="Cat">
+            <h3>Michan(Cat)</h3>
+            <p>Age: 3 years</p>
+        </div>
+
+        <div class="pet" data-type="rabbit" data-age="young">
+            <img src="https://as2.ftcdn.net/v2/jpg/13/09/85/57/1000_F_1309855767_1OKmonqdW39IgUzvV5QMF2A1kcuWtMLf.jpg" alt="Rabbit">
+            <h3>Maaran(Rabbit)</h3>
+            <p>Age: 1.5 years</p>
+        </div>
+
+    </div>
+
+    <!-- ===== Video Section ===== -->
+    <h2>Meet Our Pets 🐶🐱</h2>
+
+    <video width="300" controls>
+        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+    </video>
+
+    <!-- ===== Adoption Form ===== -->
+    <h2>Adopt a Pet</h2>
+
+    <form id="adoptForm" onsubmit="validateForm(event)">
+        <input type="text" id="name" placeholder="Your Name">
+        <input type="number" id="age" placeholder="Your Age">
+        <input type="text" id="petName" placeholder="Which Pet You Want?">
+        <button type="submit">Submit</button>
+    </form>
+
+    <p id="message"></p>
+
+    <!-- ===== JavaScript ===== -->
+    <script>
+        function filterPets() {
+            let type = document.getElementById("typeFilter").value;
+            let age = document.getElementById("ageFilter").value;
+            let pets = document.querySelectorAll(".pet");
+
+            pets.forEach(pet => {
+                let petType = pet.getAttribute("data-type");
+                let petAge = pet.getAttribute("data-age");
+
+                let typeMatch = (type === "all" || type === petType);
+                let ageMatch = (age === "all" || age === petAge);
+
+                pet.style.display = (typeMatch && ageMatch) ? "block" : "none";
+            });
+        }
+
+        function validateForm(event) {
+            event.preventDefault();
+
+            let name = document.getElementById("name").value.trim();
+            let age = document.getElementById("age").value.trim();
+            let petName = document.getElementById("petName").value.trim();
+
+            if (name === "" || age === "" || petName === "") {
+                document.getElementById("message").innerHTML = "⚠ Please fill all details!";
+                document.getElementById("message").style.color = "red"; /* Red warning */
+            } else {
+                document.getElementById("message").innerHTML = "🎉 Adoption Request Submitted!";
+                document.getElementById("message").style.color = "green"; /* Green success */
+            }
+        }
+    </script>
+
+</body>
+</html>
